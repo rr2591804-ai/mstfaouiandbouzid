@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشروع HTML CSS JavaScript</title>
+
+<style>
+/* ===== تصميم يشبه موقع MDN ===== */
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f5f5f5;
+}
+
+header{
+  background:#1b1b1b;
+  color:white;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.search-box input{
+  padding:7px;
+  width:220px;
+}
+
+.container{
+  display:flex;
+}
+
+/* القائمة الجانبية */
+.sidebar{
+  width:220px;
+  background:#2d2d2d;
+  min-height:100vh;
+  color:white;
+  padding-top:10px;
+}
+
+.sidebar a{
+  display:block;
+  color:white;
+  padding:12px;
+  text-decoration:none;
+  border-bottom:1px solid #444;
+}
+
+.sidebar a:hover{
+  background:#0078d7;
+}
+
+/* المحتوى */
+.content{
+  flex:1;
+  padding:20px;
+  background:white;
+}
+
+.card{
+  border:1px solid #ddd;
+  padding:15px;
+  margin-bottom:20px;
+  border-radius:8px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1{
+  color:#0078d7;
+}
+
+button{
+  padding:10px 15px;
+  background:#0078d7;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+button:hover{
+  background:#005fa3;
+}
+
+footer{
+  text-align:center;
+  padding:15px;
+  background:#1b1b1b;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Web Learn Docs</div>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="ابحث عن درس...">
+  </div>
+</header>
+
+<div class="container">
+
+<!-- القائمة الجانبية -->
+<div class="sidebar">
+  <a href="#html">HTML</a>
+  <a href="#css">CSS</a>
+  <a href="#js">JavaScript</a>
+  <a href="#table">الجداول</a>
+  <a href="#about">حول المشروع</a>
+</div>
+
+<!-- المحتوى الرئيسي -->
+<div class="content">
+
+<h1 align="center">مشروع تصميم صفحة ويب</h1>
+
+<div class="card" id="html">
+<h2>ما هي لغة HTML ؟</h2>
+<p>
+HTML هي لغة تستخدم لإنشاء صفحات الويب.
+تستعمل لكتابة العناوين والفقرات والصور والروابط.
+</p>
+</div>
+
+<div class="card" id="css">
+<h2>ما هي لغة CSS ؟</h2>
+<p>
+CSS تستعمل لتجميل الموقع وتغيير الألوان والخطوط والتصميم.
+</p>
+</div>
+
+<div class="card" id="js">
+<h2>ما هي JavaScript ؟</h2>
+<p>
+JavaScript تستعمل لجعل الموقع تفاعلي مثل الأزرار والرسائل.
+</p>
+
+<button onclick="showMessage()">
+اضغط هنا
+</button>
+
+</div>
+
+<div class="card" id="table">
+<h2>جدول معلومات</h2>
+
+<table border="1" width="60%">
+<tr>
+<th>الاسم</th>
+<th>المادة</th>
+<th>السنة</th>
+</tr>
+
+<tr>
+<td>مصطفاوي ياسر</td>
+<td>الإعلام الآلي</td>
+<td>2026</td>
+</tr>
+
+<tr>
+<td>ابراهيم بوزيد</td>
+<td>الإعلام الآلي</td>
+<td>2026</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card" id="about">
+<h2>حول المشروع</h2>
+<p>
+هذا الموقع تم إنشاؤه باستعمال HTML و CSS و JavaScript
+حسب متطلبات مشروع مادة الإعلام الآلي.
+</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+من إعداد التلميذين: مصطفاوي ياسر و ابراهيم بوزيد
+</footer>
+
+<script>
+function showMessage(){
+  alert("مرحبا بك في مشروع HTML CSS JavaScript");
+}
+
+/* بحث بسيط */
+document.getElementById("search").addEventListener("keyup", function(){
+  let value = this.value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(function(card){
+    if(card.innerText.toLowerCase().includes(value)){
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
