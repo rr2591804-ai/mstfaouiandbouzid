@@ -6,30 +6,55 @@
 <title>مشروع HTML CSS JavaScript</title>
 
 <style>
-/* ===== تصميم يشبه موقع MDN ===== */
+/* ===== خلفية لامعة فيها خطوط ===== */
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#f5f5f5;
+  color:white;
+
+  background: linear-gradient(-45deg, #0f2027, #00c6ff, #0072ff, #2c5364);
+  background-size: 400% 400%;
+  animation: glowBackground 10s ease infinite;
+}
+
+/* خطوط شفافة في الخلفية */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  pointer-events:none;
 }
 
 header{
-  background:#1b1b1b;
-  color:white;
+  background:rgba(0,0,0,0.8);
   padding:15px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
   font-size:22px;
   font-weight:bold;
+  color:#00e6ff;
 }
 
 .search-box input{
-  padding:7px;
+  padding:8px;
   width:220px;
+  border-radius:6px;
+  border:none;
 }
 
 .container{
@@ -38,63 +63,83 @@ header{
 
 /* القائمة الجانبية */
 .sidebar{
-  width:220px;
-  background:#2d2d2d;
+  width:230px;
+  background:rgba(0,0,0,0.85);
   min-height:100vh;
-  color:white;
-  padding-top:10px;
 }
 
 .sidebar a{
   display:block;
   color:white;
-  padding:12px;
+  padding:14px;
   text-decoration:none;
   border-bottom:1px solid #444;
+  transition:0.3s;
 }
 
 .sidebar a:hover{
-  background:#0078d7;
+  background:#00aaff;
 }
 
 /* المحتوى */
 .content{
   flex:1;
-  padding:20px;
-  background:white;
+  padding:25px;
 }
 
+/* كل معلومة وحدها */
 .card{
-  border:1px solid #ddd;
-  padding:15px;
-  margin-bottom:20px;
-  border-radius:8px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  background:rgba(255,255,255,0.95);
+  color:black;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:25px;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.02);
 }
 
 h1{
-  color:#0078d7;
+  text-align:center;
+  color:#00e6ff;
 }
 
 button{
-  padding:10px 15px;
-  background:#0078d7;
+  padding:10px 18px;
+  background:#00aaff;
   color:white;
   border:none;
+  border-radius:6px;
   cursor:pointer;
-  border-radius:5px;
 }
 
 button:hover{
-  background:#005fa3;
+  background:#0088cc;
+}
+
+table{
+  background:white;
+  color:black;
 }
 
 footer{
   text-align:center;
   padding:15px;
-  background:#1b1b1b;
-  color:white;
+  background:rgba(0,0,0,0.8);
+  margin-top:20px;
 }
+
+
+/* حركة خفيفة وذات أداء جيد */
+@keyframes glowBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 </style>
 </head>
 
@@ -110,7 +155,6 @@ footer{
 
 <div class="container">
 
-<!-- القائمة الجانبية -->
 <div class="sidebar">
   <a href="#html">HTML</a>
   <a href="#css">CSS</a>
@@ -119,30 +163,29 @@ footer{
   <a href="#about">حول المشروع</a>
 </div>
 
-<!-- المحتوى الرئيسي -->
 <div class="content">
 
-<h1 align="center">مشروع تصميم صفحة ويب</h1>
+<h1>مشروع تصميم صفحة ويب</h1>
 
 <div class="card" id="html">
-<h2>ما هي لغة HTML ؟</h2>
+<h2>HTML</h2>
 <p>
-HTML هي لغة تستخدم لإنشاء صفحات الويب.
+HTML هي لغة إنشاء صفحات الويب.
 تستعمل لكتابة العناوين والفقرات والصور والروابط.
 </p>
 </div>
 
 <div class="card" id="css">
-<h2>ما هي لغة CSS ؟</h2>
+<h2>CSS</h2>
 <p>
 CSS تستعمل لتجميل الموقع وتغيير الألوان والخطوط والتصميم.
 </p>
 </div>
 
 <div class="card" id="js">
-<h2>ما هي JavaScript ؟</h2>
+<h2>JavaScript</h2>
 <p>
-JavaScript تستعمل لجعل الموقع تفاعلي مثل الأزرار والرسائل.
+JavaScript تجعل الموقع تفاعلي مثل الأزرار والرسائل.
 </p>
 
 <button onclick="showMessage()">
@@ -182,6 +225,7 @@ JavaScript تستعمل لجعل الموقع تفاعلي مثل الأزرار
 <p>
 هذا الموقع تم إنشاؤه باستعمال HTML و CSS و JavaScript
 حسب متطلبات مشروع مادة الإعلام الآلي.
+كل معلومة موضوعة في صندوق خاص بها.
 </p>
 </div>
 
@@ -194,10 +238,9 @@ JavaScript تستعمل لجعل الموقع تفاعلي مثل الأزرار
 
 <script>
 function showMessage(){
-  alert("مرحبا بك في مشروع HTML CSS JavaScript");
+  alert("مرحبا بك في المشروع");
 }
 
-/* بحث بسيط */
 document.getElementById("search").addEventListener("keyup", function(){
   let value = this.value.toLowerCase();
   let cards = document.querySelectorAll(".card");
